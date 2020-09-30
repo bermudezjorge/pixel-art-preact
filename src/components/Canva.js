@@ -1,14 +1,14 @@
 import Pixel from "./Pixel";
 
 export default function Canva({ color, pixelArray, setPixelArray }) {
-
   const changePixelColor = (pixel) => {
-    if (color !== pixelArray[pixel])
-    let newPixelArr = pixelArray;
-    newPixelArr[pixel] = color;
+    if (color !== pixelArray[pixel]) {
+      let newPixelArr = [...pixelArray];
+      newPixelArr[pixel] = color;
 
-    setPixelArray(newPixelArr);
-  }
+      setPixelArray(newPixelArr);
+    }
+  };
 
   return (
     <div class="canva-container">
