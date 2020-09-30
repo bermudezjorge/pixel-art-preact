@@ -1,26 +1,32 @@
-export default function Pixel({
-  color,
-  drawing,
-  pixelPosition,
-  pixelArray,
-  setPixelArray,
-}) {
-  const setColor = () => {
-    if (color !== pixelArray[pixelPosition])
-      setPixelArray((draw) => {
-        let newPixelArr = draw;
-        newPixelArr[pixelPosition] = color;
+import { useState, useEffect } from "preact/hooks";
 
-        return newPixelArr;
+export default function Pixel({ pixel, pixelColor, changePixelColor }) {
+  const [drawing, setDrawing] = useState(false);
+
+  useEffect(() => {
+    function mouseHold() {
+      document.addEventListener("mousedown", () => {
+        setDrawing(true);
       });
-  };
+
+      document.addEventListener("mouseup", () => {
+        setDrawing(false);
+      });
+    }
+    mouseHold();
+
+    return () => {
+      document.removeEventListener("mousedown", mouseHold);
+      document.removeEventListener("mouseup", mouseHold);
+    };
+  }, []);
 
   const handleDraw = (type) => {
     if (type === "1px") {
-      setColor();
+      changePixelColor(pixel);
     } else {
       if (drawing) {
-        setColor();
+        changePixelColor(pixel);
       }
     }
   };
@@ -31,7 +37,7 @@ export default function Pixel({
       onClick={() => handleDraw("1px")}
       onMouseover={() => handleDraw("+px")}
       style={{
-        backgroundColor: pixelArray[pixelPosition],
+        backgroundColor: pixelColor,
       }}
     ></div>
   );

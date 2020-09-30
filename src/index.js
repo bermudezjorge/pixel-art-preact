@@ -23,29 +23,9 @@ export default function App() {
     }
   };
 
+  useEffect(() => savePixelArt());
+
   const [pixelArray, setPixelArray] = useState(initializeDraw());
-
-  const [drawing, setDrawing] = useState(false);
-
-  useEffect(() => {
-    function mouseHold() {
-      document.addEventListener("mousedown", () => {
-        setDrawing(true);
-      });
-
-      document.addEventListener("mouseup", () => {
-        setDrawing(false);
-      });
-    }
-    mouseHold();
-
-    savePixelArt();
-
-    return () => {
-      document.removeEventListener("mousedown", mouseHold);
-      document.removeEventListener("mouseup", mouseHold);
-    };
-  });
 
   const savePixelArt = () => {
     let dataString = pixelArray.join();
@@ -58,7 +38,6 @@ export default function App() {
     <div class="layout">
       <Canva
         color={color}
-        drawing={drawing}
         pixelArray={pixelArray}
         setPixelArray={setPixelArray}
       />
