@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html,
+body {
+  font: 14px/1.21 "Consolas", Helvetica, arial, sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.layout {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.canva-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.canva {
+  display: grid;
+  grid-template-columns: repeat(16, 32px);
+  grid-template-rows: repeat(16, 32px);
+  border-left: 1px solid #7a7a7a;
+  border-bottom: 1px solid #7a7a7a;
+}
+
+.pixel {
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid #7a7a7a;
+  border-right: 1px solid #7a7a7a;
+}
+
+.color-menu {
+  width: 250px;
+  padding: 40px;
+}
+
+.color-menu h1 {
+  margin-bottom: 33px;
+}
+
+.color-menu label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 33px;
+  border: 1px solid rgb(223, 223, 223);
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.color-menu label:hover {
+  transform: scale(0.9);
+}
+
+.color-menu input {
+  width: 100%;
+  height: 40px;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  margin-top: 7px;
+  cursor: pointer;
+}
+
+.palette-container {
+  display: grid;
+  grid-template-columns: repeat(5, 26px);
+  grid-gap: 3px;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  border: 1px solid rgb(223, 223, 223);
+  padding: 1rem;
+}
+
+.palette-square {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.palette-square:hover {
+  transform: scale(0.9);
+}
