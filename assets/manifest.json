@@ -1,0 +1,9 @@
+{
+  "name": "PixelHDPRO",
+  "short_name": "PixelHDPRO",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#fff",
+  "theme_color": "#673ab8"
+}

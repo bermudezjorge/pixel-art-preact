@@ -11,13 +11,18 @@ export default function App() {
 
   const initializeDraw = () => {
     if (location.href.length > 50) {
-      return LZString.decompressFromUint8Array(
-        new Uint8Array(
-          location.href
-            .slice(location.href.indexOf("/", 10) + 1, location.href.length - 1)
-            .split(",")
-        )
-      ).split(",");
+      let invertedUrl = location.href.split("").reverse().join("");
+
+      let drawData = invertedUrl
+        .slice(0, invertedUrl.indexOf("/"))
+        .split("")
+        .reverse()
+        .join("")
+        .split(",");
+
+      return LZString.decompressFromUint8Array(new Uint8Array(drawData)).split(
+        ","
+      );
     } else {
       return Array(256).fill("#ffffff");
     }
@@ -31,7 +36,7 @@ export default function App() {
     let dataString = pixelArray.join();
     let compressedData = LZString.compressToUint8Array(dataString);
 
-    history.pushState(null, null, compressedData);
+    history.pushState(null, null, "/!#/" + compressedData);
   };
 
   return (
