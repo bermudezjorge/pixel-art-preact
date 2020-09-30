@@ -48,6 +48,7 @@ body {
   height: 100%;
   border-top: 1px solid #7a7a7a;
   border-right: 1px solid #7a7a7a;
+  cursor: cell;
 }
 
 .color-menu {
@@ -69,6 +70,18 @@ body {
 }
 
 .color-menu label:hover {
+  transform: scale(0.9);
+}
+
+.eraser {
+  width: 100%;
+  background-color: whitesmoke;
+  border: 1px solid black;
+  padding: 7px 0;
+  cursor: pointer;
+}
+
+.eraser:hover {
   transform: scale(0.9);
 }
 

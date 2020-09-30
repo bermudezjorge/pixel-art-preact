@@ -25,7 +25,9 @@ export default function ColorMenu({ pixelArray, color, setColor }) {
         <b>Currect color</b>
         <input type="color" name="" value={color} onInput={handleChangeColor} />
       </label>
-      <p onClick={() => setColor("#ffffff")}>Borrar</p>
+      <button class="eraser" onClick={() => setColor("#ffffff")}>
+        Eraser
+      </button>
       <h1>Palette</h1>
       <ul class="palette-container">
         {palette.length > 0 ? (
