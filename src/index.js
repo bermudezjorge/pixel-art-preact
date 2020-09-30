@@ -14,7 +14,7 @@ export default function App() {
       let invertedUrl = location.href.split("").reverse().join("");
 
       let drawData = invertedUrl
-        .slice(0, invertedUrl.indexOf("/"))
+        .slice(0, invertedUrl.indexOf("#"))
         .split("")
         .reverse()
         .join("")
@@ -36,7 +36,7 @@ export default function App() {
     let dataString = pixelArray.join();
     let compressedData = LZString.compressToUint8Array(dataString);
 
-    history.pushState(null, null, "/!#/" + compressedData);
+    history.pushState({}, "", "#" + compressedData);
   };
 
   return (
